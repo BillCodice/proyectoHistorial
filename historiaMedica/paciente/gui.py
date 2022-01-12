@@ -169,6 +169,7 @@ class Frame(tk.Frame):
         self.topCalendario = Toplevel()
         self.topCalendario.title("FECHA NACIMIENTO")
         self.topCalendario.resizable(0,0)
+        self.topCalendario.iconbitmap('img/clinica.ico')
         self.topCalendario.config(bg='#CDD8FF')
 
         self.svCalendario = StringVar()
@@ -350,6 +351,7 @@ class Frame(tk.Frame):
             self.topHistoriaMedica = Toplevel()
             self.topHistoriaMedica.title('HISTORIAL MEDICO')
             self.topHistoriaMedica.resizable(0,0)
+            self.topHistoriaMedica.iconbitmap('img/clinica.ico')
             self.topHistoriaMedica.config(bg='#CDD8FF')
 
             self.listaHistoria = listarHistoria(idPersona)
@@ -405,6 +407,7 @@ class Frame(tk.Frame):
         self.topAHistoria = Toplevel()
         self.topAHistoria.title('AGREGAR HISTORIA')
         self.topAHistoria.resizable(0,0)
+        self.topAHistoria.iconbitmap('img/clinica.ico')
         self.topAHistoria.config(bg='#CDD8FF')
         #FRAME 1
         self.frameDatosHistoria = tk.LabelFrame(self.topAHistoria)
@@ -505,6 +508,7 @@ class Frame(tk.Frame):
             self.topEditarHistoria = Toplevel()
             self.topEditarHistoria.title('EDITAR HISTORIA MEDICA')
             self.topEditarHistoria.resizable(0,0)
+            self.topEditarHistoria.iconbitmap('img/clinica.ico')
             self.topEditarHistoria.config(bg='#CDD8FF')
 
             #FRAME EDITAR DATOS HISTORIA

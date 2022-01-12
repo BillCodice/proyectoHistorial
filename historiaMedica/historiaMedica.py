@@ -4,7 +4,7 @@ def main():
     root = tk.Tk()
     root.title('HISTORIA MEDICA')
     root.resizable(0,0)
-
+    root.iconbitmap('img/clinica.ico')
     frame = Frame(root)
     frame.mainloop()
 
