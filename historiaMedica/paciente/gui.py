@@ -398,10 +398,12 @@ class Frame(tk.Frame):
             self.btnSalirHistoria.config(width=20, font=('ARIAL', 12, 'bold'), fg='#DAD5D6', bg='#000000', cursor='hand2', activebackground='#6F6F6F')
             self.btnSalirHistoria.grid(row=2, column=6, padx=10, pady=5)
 
+            
         except:
             title = 'Historia Medica'
             mensaje = 'Error al mostrar historial'
             messagebox.showerror(title, mensaje)
+            self.idPersona = None
 
     def topAgregarHistoria(self):
         self.topAHistoria = Toplevel()
@@ -606,6 +608,8 @@ class Frame(tk.Frame):
 
     def salirTop(self):
         self.topHistoriaMedica.destroy()
+        self.topAHistoria.destroy()
+        self.topEditarHistoria.destroy()
 
     def editarPaciente(self):
         try:
