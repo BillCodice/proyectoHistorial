@@ -364,7 +364,7 @@ class Frame(tk.Frame):
             self.tablaHistoria.configure(yscrollcommand=self.scrollHistoria.set)
 
             self.tablaHistoria.heading('#0', text='ID')
-            self.tablaHistoria.heading('#1', text='Apellidos')
+            self.tablaHistoria.heading('#1', text='Nombre y Apellidos')
             self.tablaHistoria.heading('#2', text='Fecha y Hora')
             self.tablaHistoria.heading('#3', text='Motivo')
             self.tablaHistoria.heading('#4', text='Examen Auxiliar')
@@ -372,12 +372,12 @@ class Frame(tk.Frame):
             self.tablaHistoria.heading('#6', text='Detalle')
 
             self.tablaHistoria.column('#0', anchor=W, width=50)
-            self.tablaHistoria.column('#1', anchor=W, width=100)
+            self.tablaHistoria.column('#1', anchor=W, width=150)
             self.tablaHistoria.column('#2', anchor=W, width=100)
             self.tablaHistoria.column('#3', anchor=W, width=120)
             self.tablaHistoria.column('#4', anchor=W, width=250)
             self.tablaHistoria.column('#5', anchor=W, width=200)
-            self.tablaHistoria.column('#6', anchor=W, width=500)
+            self.tablaHistoria.column('#6', anchor=W, width=450)
 
             for p in self.listaHistoria:
                 self.tablaHistoria.insert('',0, text=p[0], values=(p[1],p[2],p[3],p[4],p[5],p[6]))
@@ -398,6 +398,7 @@ class Frame(tk.Frame):
             self.btnSalirHistoria.config(width=20, font=('ARIAL', 12, 'bold'), fg='#DAD5D6', bg='#000000', cursor='hand2', activebackground='#6F6F6F')
             self.btnSalirHistoria.grid(row=2, column=6, padx=10, pady=5)
 
+            self.idPersona = None
             
         except:
             title = 'Historia Medica'
@@ -475,12 +476,15 @@ class Frame(tk.Frame):
         self.btnSalirAgregarHistoria.config(width=20, font=('ARIAL', 12, 'bold'), fg='#DAD5D6', bg='#000000', cursor='hand2', activebackground='#646464')
         self.btnSalirAgregarHistoria.grid(row=2, column=3, padx=10, pady=5)
 
+        self.idPersona = None
+
     def agregaHistorialMedico(self):
         try:
             if self.idHistoriaMedica == None:
                 guardarHistoria(self.idPersonaHistoria, self.svFechaHistoria.get(),self.svMotivoHistoria.get(), self.svExamenAuxiliarHistoria.get(), self.svTratamientoHistoria.get(),self.svDetalleHistoria.get())
             self.topAHistoria.destroy()
             self.topHistoriaMedica.destroy()
+            self.idPersona = None
         except:
             title = 'Agregar Historia'
             mensaje = 'Error al agregar historia Medica'
@@ -610,6 +614,7 @@ class Frame(tk.Frame):
         self.topHistoriaMedica.destroy()
         self.topAHistoria.destroy()
         self.topEditarHistoria.destroy()
+        self.idPersona = None
 
     def editarPaciente(self):
         try:

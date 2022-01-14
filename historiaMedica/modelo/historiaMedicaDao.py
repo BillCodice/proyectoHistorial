@@ -5,7 +5,7 @@ from tkinter import messagebox
 def listarHistoria(idPersona):
     conexion = ConexionDB()
     listaHistoria = []
-    sql = f'SELECT h.idHistoriaMedica, p.apellidoPaterno || " " || p.apellidoMaterno AS Apellidos, h.fechaHistoria, h.motivo, h.examenAuxiliar, h.tratamiento, h.detalle FROM historiaMedica h INNER JOIN Persona p ON p.idPersona = h.idPersona WHERE p.idPersona = {idPersona}'
+    sql = f'SELECT h.idHistoriaMedica, p.nombre || " " || p.apellidoPaterno || " " || p.apellidoMaterno AS Apellidos, h.fechaHistoria, h.motivo, h.examenAuxiliar, h.tratamiento, h.detalle FROM historiaMedica h INNER JOIN Persona p ON p.idPersona = h.idPersona WHERE p.idPersona = {idPersona}'
 
     try:
         conexion.cursor.execute(sql)

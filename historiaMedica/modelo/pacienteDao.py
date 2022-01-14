@@ -5,7 +5,7 @@ from tkinter import messagebox
 def editarDatoPaciente(persona, idPersona):
     conexion = ConexionDB()
     sql = f"""UPDATE Persona SET nombre = '{persona.nombre}', apellidoPaterno = '{persona.apellidoPaterno}',
-            apellidoMaterno = '{persona.apellidoMaterno}', dni = {persona.dni}, fechaNacimiento = '{persona.fechaNacimiento}',
+            apellidoMaterno = '{persona.apellidoMaterno}', dni = '{persona.dni}', fechaNacimiento = '{persona.fechaNacimiento}',
             edad = {persona.edad}, antecedentes = '{persona.antecedentes}', correo = '{persona.correo}', telefono = '{persona.telefono}', activo = 1 WHERE idPersona = {idPersona}"""
     try:
         conexion.cursor.execute(sql)
@@ -23,7 +23,7 @@ def guardarDatoPaciente(persona):
     sql = f"""INSERT INTO Persona (nombre, apellidoPaterno, apellidoMaterno,
             dni, fechaNacimiento, edad, antecedentes, correo, telefono, activo) VALUES
             ('{persona.nombre}','{persona.apellidoPaterno}','{persona.apellidoMaterno}',
-            {persona.dni},'{persona.fechaNacimiento}',{persona.edad},'{persona.antecedentes}',
+            '{persona.dni}','{persona.fechaNacimiento}',{persona.edad},'{persona.antecedentes}',
             '{persona.correo}','{persona.telefono}',1)"""
     try:
         conexion.cursor.execute(sql)
